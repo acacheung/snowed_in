@@ -23,6 +23,7 @@ feature 'Guest signs up', %{
     fill_in 'user[address_city]', :with => 'Boston'
     fill_in 'user[address_state]', :with => 'MA'
     fill_in 'user[address_zipcode]', :with => '02210'
+    choose('I need help shoveling')
     click_button 'Sign up'
     page.should have_content('You have signed up successfully')
     page.should_not have_content('Sign up')

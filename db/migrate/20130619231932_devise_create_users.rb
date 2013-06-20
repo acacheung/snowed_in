@@ -36,7 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :address_street
       t.string  :address_city
       t.string  :address_state
-      t.integer :address_zipcode, :null => false
+      t.string :address_zipcode, :null => false
+
+      t.string :role, :null => false, :default => ''
 
       t.timestamps
     end

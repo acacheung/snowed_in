@@ -25,6 +25,7 @@ feature 'User signs in', %{
     fill_in 'user[address_city]', :with => 'Boston'
     fill_in 'user[address_state]', :with => 'MA'
     fill_in 'user[address_zipcode]', :with => '02210'
+    choose('I need help shoveling')
     click_button 'Sign up'
     click_link 'Sign Out'
     click_link 'Sign In'

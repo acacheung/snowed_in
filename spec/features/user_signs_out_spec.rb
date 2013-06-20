@@ -16,6 +16,7 @@ feature 'User signs out', %{
     fill_in 'user[address_city]', :with => 'Boston'
     fill_in 'user[address_state]', :with => 'MA'
     fill_in 'user[address_zipcode]', :with => '02210'
+    # choose('')
     click_button 'Sign up'
     click_link 'Sign Out'
     page.should_not have_content('Sign Out')

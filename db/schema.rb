@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(:version => 20130619231932) do
     t.string   "address_street"
     t.string   "address_city"
     t.string   "address_state"
-    t.integer  "address_zipcode",                        :null => false
+    t.string   "address_zipcode",                        :null => false
+    t.string   "role",                   :default => "", :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

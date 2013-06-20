@@ -12,6 +12,18 @@
     = f.input :address_state
     = f.input :address_zipcode, :required => true
 
+    // = f.collection_radio_buttons :role, [['requester', 'I need help shoveling'], ['shoveler', 'I want to shovel']], :first, :last
+
+    = f.input :role,
+    :collection => [['I need help shoveling', 'requester'], ['I want to shovel', 'shoveler']],
+    :as => :radio_buttons
+
+
+    // = radio_button_tag(:role, 'requester')
+    // = label_tag(:role_requester, 'I need help shoveling')
+    // = radio_button_tag(:role, 'shoveler')
+    // = label_tag(:role_shoveler, 'I want to shovel')
+
   .form-actions
     = f.button :submit, "Sign up"
 
