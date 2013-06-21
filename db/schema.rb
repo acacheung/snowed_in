@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619231932) do
+ActiveRecord::Schema.define(:version => 20130620214903) do
+
+  create_table "requests", :force => true do |t|
+    t.integer  "requester_id", :null => false
+    t.integer  "shoveler_id"
+    t.string   "job_size",     :null => false
+    t.integer  "offer",        :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -24,11 +33,12 @@ ActiveRecord::Schema.define(:version => 20130619231932) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "address_street"
-    t.string   "address_city"
-    t.string   "address_state"
-    t.string   "address_zipcode",                        :null => false
-    t.string   "role",                   :default => "", :null => false
+    t.string   "name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode",                                :null => false
+    t.string   "role",                                   :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
