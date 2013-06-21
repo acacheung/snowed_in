@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   ROLES = %w[requester shoveler]
 
-  validates_inclusion_of :role, in: ROLES
+  validates_inclusion_of :role, :in => ROLES, :message => 'Please choose between needing help and shoveling'
   validates_presence_of :role
 
   validates :state, :format => { :with => /\b([A-Z]{2})\b/, :message => 'Must be a valid US state' }

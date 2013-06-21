@@ -3,28 +3,19 @@
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :password, :required => true
-    = f.input :password_confirmation, :required => true
-    = f.input :street
-    = f.input :city
-    = f.input :state
-    = f.input :zipcode, :required => true
+  = f.input :email, :required => true, :autofocus => true
+  = f.input :password, :required => true
+  = f.input :password_confirmation, :required => true
+  = f.input :street
+  = f.input :city
+  = f.input :state
+  = f.input :zipcode, :required => true
 
-    // = f.collection_radio_buttons :role, [['requester', 'I need help shoveling'], ['shoveler', 'I want to shovel']], :first, :last
+  = f.input :role,
+  :label => false,
+  :collection => [['I need help shoveling', 'requester'], ['I want to shovel', 'shoveler']],
+  :as => :radio_buttons
 
-    = f.input :role,
-    :collection => [['I need help shoveling', 'requester'], ['I want to shovel', 'shoveler']],
-    :as => :radio_buttons
-
-
-    // = radio_button_tag(:role, 'requester')
-    // = label_tag(:role_requester, 'I need help shoveling')
-    // = radio_button_tag(:role, 'shoveler')
-    // = label_tag(:role_shoveler, 'I want to shovel')
-
-  .form-actions
-    = f.button :submit, "Sign up"
+  = f.button :submit, "Sign up"
 
 = render "devise/shared/links"
