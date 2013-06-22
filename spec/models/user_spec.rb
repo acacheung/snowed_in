@@ -11,13 +11,15 @@ describe User do
   it { should allow_value('shoveler').for(:role) }
   it { should_not allow_value('panda').for(:role) }
 
-  it 'state will not submit if state is longer than two letters' do
-    user.state = 'Meow'
-    expect(user).to_not be_valid
-  end
+  it { should allow_value('').for(:state) }
+  it { should allow_value('MA').for(:state) }
+  it { should_not allow_value(0).for(:state) }
+  it { should_not allow_value('meow').for(:state) }
 
-  it 'zipcode will not submit if it is not a number with five digits' do
-    user.zipcode = 'Meow'
-    expect(user).to_not be_valid
-  end
+  it { should allow_value('02461').for(:zipcode) }
+  it { should_not allow_value(0).for(:zipcode) }
+  it { should_not allow_value('meow').for(:zipcode) }
+
+  it { should have_many(:work_requests) }
+  it { should have_many(:bids) }
 end

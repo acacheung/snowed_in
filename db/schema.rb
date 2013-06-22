@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20130620214903) do
     t.integer  "requester_id", :null => false
     t.integer  "shoveler_id"
     t.string   "job_size",     :null => false
-    t.integer  "offer",        :null => false
+    t.string   "offer",        :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

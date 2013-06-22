@@ -1,1 +1,7 @@
-%h1 WELCOME!!
+- if user_signed_in?
+  - if current_user.requester?
+    = render 'requester'
+  - elsif current_user.shoveler?
+    = render 'shoveler'
+- else
+  = render 'guest'

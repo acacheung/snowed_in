@@ -1,0 +1,9 @@
+%h1 All the requests
+
+- @requests.each do |request|
+  = link_to(request) do
+    = request.requester.name
+    = request.job_size
+    = request.offer
+    %br
+    %br

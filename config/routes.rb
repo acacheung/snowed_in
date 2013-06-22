@@ -1,6 +1,8 @@
 Snowedin::Application.routes.draw do
   devise_for :users
 
+  resources :requests
+
   ['welcome'].each do |page|
     get "/#{page}" => "pages##{page}", :as => page
   end
