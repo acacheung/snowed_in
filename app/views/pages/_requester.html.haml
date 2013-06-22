@@ -1,5 +1,5 @@
 %h1
-  You are a
+  Welcome,
   = "#{current_user.role}"
 
-= link_to 'Request help for shoveling', new_request_path
+= render 'requests/form'

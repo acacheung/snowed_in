@@ -18,7 +18,6 @@ feature 'User can request help', %{
     fill_in 'user[zipcode]', :with => '02210'
     choose('I need help shoveling')
     click_button 'Sign up'
-    click_link 'Request help for shoveling'
     choose('small')
     choose('$20')
     click_button 'Submit request'

@@ -3,6 +3,10 @@
 - @requests.each do |request|
   = link_to(request) do
     = request.requester.name
+    = request.requester.street
+    = request.requester.city
+    = request.requester.state
+    = request.requester.zipcode
     = request.job_size
     = request.offer
     %br
