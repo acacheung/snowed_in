@@ -1,3 +1,11 @@
 %h1
-  = @request.job_size
+  = @request.requester.name
+  = @request.requester.street
+  = @request.requester.city
+  = @request.requester.state
   = @request.requester.zipcode
+  = @request.job_size
+  = @request.offer
+
+- if current_user == @request.requester
+  = button_to 'Cancel your request', @request, :method => :delete

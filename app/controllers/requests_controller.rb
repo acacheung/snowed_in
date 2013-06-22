@@ -1,14 +1,22 @@
 class RequestsController < ApplicationController
   def index
-    @requests = Request.all
+    if current_user && current_user.shoveler?
+      @requests = Request.all
+    else
+      redirect_to root_path, :notice => 'You are not authorized!'
+    end
   end
 
   def show
-    @request = Request.find(params[:id])
+    if user_signed_in?
+      @request = Request.find(params[:id])
+    end
   end
 
   def new
-    @request = Request.new
+    if current_user && current_user.requester?
+      @request = Request.new
+    end
   end
 
   def create
@@ -18,6 +26,14 @@ class RequestsController < ApplicationController
       redirect_to @request, :notice => 'Request was successfully created'
     else
       render :action => 'new'
+    end
+  end
+
+  def destroy
+    @request = Request.find(params[:id])
+    if current_user && current_user == @request.requester
+      @request.destroy
+      redirect_to root_path, :notice => 'Your request has been cancelled'
     end
   end
 end

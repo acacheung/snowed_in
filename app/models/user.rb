@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :street, :city, :state, :zipcode, :role
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :street, :city, :state, :zipcode, :role
 
   ROLES = %w[requester shoveler]
   validates_inclusion_of :role, :in => ROLES, :message => 'Please choose between needing help and shoveling'
