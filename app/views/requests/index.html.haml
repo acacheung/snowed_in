@@ -1,5 +1,3 @@
-%h1 All the requests
-
 - @requests.each do |request|
   - if current_user.shoveler? || (current_user == request.requester)
     = link_to(request) do

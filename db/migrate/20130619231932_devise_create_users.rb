@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zipcode, :null => false
-
+      t.boolean :old_or_disabled, :default => false, :null => false
       t.string :role, :null => false
 
       t.timestamps

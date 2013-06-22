@@ -10,12 +10,16 @@ class RequestsController < ApplicationController
   def show
     if user_signed_in?
       @request = Request.find(params[:id])
+    else
+      redirect_to root_path, :notice => 'You are not authorized!'
     end
   end
 
   def new
     if current_user && current_user.requester?
       @request = Request.new
+    else
+      redirect_to root_path, :notice => 'You are not authorized!'
     end
   end
 
