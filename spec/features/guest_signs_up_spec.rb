@@ -21,7 +21,7 @@ feature 'Guest signs up', %{
     fill_in 'user[password_confirmation]', :with => 'qwertyuiop'
     fill_in 'user[street]', :with => '377 Summer Street'
     fill_in 'user[city]', :with => 'Boston'
-    fill_in 'user[state]', :with => 'MA'
+    select('MA', :from => 'State')
     fill_in 'user[zipcode]', :with => '02210'
     choose('I need help shoveling')
     click_button 'Sign up'
