@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+
   def index
     if current_user && current_user.shoveler?
       @requests = Request.all
@@ -40,4 +41,5 @@ class RequestsController < ApplicationController
       redirect_to root_path, :notice => 'Your request has been cancelled'
     end
   end
+
 end

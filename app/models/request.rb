@@ -1,4 +1,5 @@
 class Request < ActiveRecord::Base
+
   attr_accessible :job_size, :offer, :requester_id
 
   validates_presence_of :requester, :job_size, :offer
