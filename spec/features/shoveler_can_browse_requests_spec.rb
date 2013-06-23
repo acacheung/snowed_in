@@ -24,7 +24,7 @@ feature 'Shoveler can browse requests', %{
     choose('I need help shoveling')
     click_button 'Sign up'
     choose('small')
-    choose('$20')
+    choose(20)
     click_button 'Submit request'
     click_link 'Sign Out'
 

@@ -16,8 +16,9 @@ describe Request do
   it { should allow_value('big').for(:job_size) }
   it { should_not allow_value('panda').for(:job_size) }
 
-  it { should allow_value('$20').for(:offer) }
-  it { should_not allow_value('-$500').for(:offer) }
+  it { should allow_value(0).for(:offer) }
+  it { should allow_value(20).for(:offer) }
+  it { should_not allow_value(-500).for(:offer) }
   it { should_not allow_value('panda').for(:offer) }
 
 end

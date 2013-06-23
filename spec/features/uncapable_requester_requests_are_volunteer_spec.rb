@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-feature 'User can request help', %{
-  As a signed in user,
-  I want to add a request for help shoveling,
-  so I can get matched up with a shoveler
+feature 'Uncapable requester requests are for volunteer', %{
+  As a requester that is old or disabled,
+  I want to set my offer to zero
+  so shovelers can volunteer to help me
   } do
 
-  scenario 'User can add a request for help' do
+  scenario 'Uncapable requester cannot see offer select when creating a request' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'Email', :with => 'amanda@panda.com'
@@ -17,9 +17,9 @@ feature 'User can request help', %{
     select('MA', :from => 'State')
     fill_in 'user[zipcode]', :with => '02210'
     choose('I need help shoveling')
+    check('user_old_or_disabled')
     click_button 'Sign up'
     choose('small')
-    choose(20)
     click_button 'Submit request'
     page.should have_content('02210')
   end

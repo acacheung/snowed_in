@@ -4,7 +4,7 @@ class CreateRequestTable < ActiveRecord::Migration
       t.integer :requester_id, :null => false
       t.integer :shoveler_id
       t.string :job_size, :null => false
-      t.string :offer, :null => false
+      t.integer :offer, :null => false, :default => 0
 
       t.timestamps
     end
