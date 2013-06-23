@@ -21,8 +21,9 @@
   :collection => [['I need help shoveling', 'requester'], ['I want to shovel', 'shoveler']],
   :as => :radio_buttons
 
-  = f.label :old_or_disabled, 'Are you over 65 or disabled?'
-  = f.check_box :old_or_disabled
+  .pop_down
+    = f.check_box :old_or_disabled
+    = f.label :old_or_disabled, 'Are you over 65 or disabled?'
 
   %br
 
