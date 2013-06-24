@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe Request do
 
-  let(:request) {FactoryGirl.build(:request)}
-
   it { should validate_presence_of(:job_size) }
   it { should validate_presence_of(:offer) }
   it { should validate_presence_of(:requester) }
@@ -21,4 +19,12 @@ describe Request do
   it { should_not allow_value(-500).for(:offer) }
   it { should_not allow_value('panda').for(:offer) }
 
+  # context 'when volunteer' do
+  #   let(:request) {FactoryGirl.build(:request)}
+  #   let(:requester) {FactoryGirl.build(:requester)}
+
+  #   it 'should return true if request is for volunteers' do
+  #     request.volunteer?.should be_true
+  #   end
+  # end
 end

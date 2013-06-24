@@ -1,4 +1,5 @@
 - if user_signed_in?
+  %h1= "Welcome, #{current_user.name} (#{current_user.role})"
   - if current_user.requester?
     = render 'requester'
   - elsif current_user.shoveler?

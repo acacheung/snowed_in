@@ -5,8 +5,8 @@
   :as => :radio_buttons
 
   - if current_user.old_or_disabled == false
-    = f.input :offer,
-    :collection => [10, 20, 30, 50],
-    :as => :radio_buttons
+    = f.label :offer
+    = f.collection_radio_buttons :offer, [[10, '$10'], [20, '$20'], [30, '$30'], [50, '$50']], :first, :last
 
+  %br
   = f.submit 'Submit request'
