@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(:version => 20130620214903) do
 
   create_table "requests", :force => true do |t|
-    t.integer  "requester_id",                :null => false
+    t.integer  "requester_id",                     :null => false
     t.integer  "shoveler_id"
-    t.string   "job_size",                    :null => false
-    t.integer  "offer",        :default => 0, :null => false
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.string   "job_size",                         :null => false
+    t.integer  "offer",        :default => 0,      :null => false
+    t.string   "state",        :default => "open", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "users", :force => true do |t|

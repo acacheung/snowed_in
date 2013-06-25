@@ -19,7 +19,7 @@ describe Request do
   it { should_not allow_value(-500).for(:offer) }
   it { should_not allow_value('panda').for(:offer) }
 
-  # context 'when volunteer' do
+  # context 'for volunteer' do
   #   let(:request) {FactoryGirl.build(:request)}
   #   let(:requester) {FactoryGirl.build(:requester)}
 

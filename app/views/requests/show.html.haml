@@ -1,4 +1,8 @@
 %h1= @request.format_request(@request)
 
 - if current_user == @request.requester
+  - if @request.open?
+    = link_to 'I found a match!', :controller => 'requests', :action => 'edit'
+  - if @request.matched?
+    = link_to 'Request has been completed!', :controller => 'requests', :action => 'edit'
   = button_to 'Cancel your request', @request, :method => :delete

@@ -5,6 +5,7 @@ class CreateRequestTable < ActiveRecord::Migration
       t.integer :shoveler_id
       t.string :job_size, :null => false
       t.integer :offer, :null => false, :default => 0
+      t.string :state, :null => false, :default => 'open'
 
       t.timestamps
     end

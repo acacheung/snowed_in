@@ -12,6 +12,19 @@ FactoryGirl.define do
     role                  "shoveler"
   end
 
+  # factory :old_requester do
+  #   sequence(:email)      { |n| "email#{n}@example.com" }
+  #   password              "password"
+  #   password_confirmation "password"
+  #   name                  "Amanda"
+  #   street                "377 Summer Street"
+  #   city                  "Boston"
+  #   state                 "MA"
+  #   zipcode               "02210"
+  #   role                  "requester"
+  #   old_or_disabled       "true"
+  # end
+
   # factory :requester do
   #   sequence(:email)      { |n| "email#{n}@example.com" }
   #   password              "password"

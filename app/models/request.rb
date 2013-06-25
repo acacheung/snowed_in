@@ -2,9 +2,9 @@ include ActionView::Helpers::TextHelper
 
 class Request < ActiveRecord::Base
 
-  attr_accessible :job_size, :offer, :requester_id
+  attr_accessible :job_size, :offer, :requester_id, :state
 
-  validates_presence_of :requester, :job_size, :offer
+  validates_presence_of :requester, :job_size, :offer, :state
 
   belongs_to :requester, :class_name => 'User', :foreign_key => 'requester_id'
   belongs_to :shoveler, :class_name => 'User', :foreign_key => 'shoveler_id'
@@ -15,6 +15,9 @@ class Request < ActiveRecord::Base
   OFFERS = [0, 10, 20, 30, 50]
   validates_inclusion_of :offer, :in => OFFERS, :message => 'Please indicate how much you are willing to offer'
   validates :offer, :numericality => true
+
+  STATES = %w[open matched complete cancelled]
+  validates_inclusion_of :state, :in => STATES
 
   def volunteer?
     offer == 0
@@ -49,6 +52,30 @@ class Request < ActiveRecord::Base
 
   def format_request(request)
     "#{format_for_money(offer)} #{format_job_size(job_size)} shoveling job at #{format_address(requester.street, requester.city, requester.state, requester.zipcode)} (posted #{ago(created_at)} ago)"
+  end
+
+  def open?
+    state == 'open'
+  end
+
+  def matched?
+    state == 'matched'
+  end
+
+  def complete?
+    state == 'complete'
+  end
+
+  def cancelled?
+    state == 'cancelled'
+  end
+
+  def matched(request)
+    request.state = 'matched'
+  end
+
+  def completed(request)
+    request.state = 'complete'
   end
 
 end

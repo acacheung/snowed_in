@@ -1,6 +1,9 @@
 = render 'requests/form'
 
 %h3 Your requests
-= render :template => 'requests/index'
+.your_requests
+  = render :template => 'requests/index'
 
-%h3 Your past requests
+%h3 Your completed requests
+.your_completed_requests
+  = render :template => 'requests/index' # FIX THIS LATER

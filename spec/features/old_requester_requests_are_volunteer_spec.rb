@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-feature 'Uncapable requester requests are for volunteer', %{
+feature 'Old / uncapable requester requests are for volunteer', %{
   As a requester that is old or disabled,
   I want to set my offer to zero
   so shovelers can volunteer to help me
   } do
 
-  scenario 'Uncapable requester cannot see offer select when creating a request' do
+  scenario 'Old / uncapable requester cannot see offer select when creating a request' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'Email', :with => 'amanda@panda.com'

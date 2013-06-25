@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-feature 'User can request help', %{
+feature 'Requester can request help', %{
   As a signed in user,
   I want to add a request for help shoveling,
   so I can get matched up with a shoveler
   } do
 
-  scenario 'User can add a request for help' do
+  scenario 'Requester can add a request for help' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'Email', :with => 'amanda@panda.com'

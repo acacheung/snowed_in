@@ -42,4 +42,17 @@ class RequestsController < ApplicationController
     end
   end
 
+  def edit
+    @request = Request.find(params[:id])
+    if current_user && current_user == @request.requester
+      if @request.open?
+        @request.matched(@request)
+      elsif @request.matched?
+        @request.completed(@request)
+      end
+      @request.save
+      redirect_to :back, :notice => 'Updated your request'
+    end
+  end
+
 end

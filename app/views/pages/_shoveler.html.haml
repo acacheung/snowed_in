@@ -1,2 +1,3 @@
-%h3 Requests in your area
-= render :template => 'requests/index'
+- if current_user.shoveler?
+  %h3 Requests in your area
+  = render :template => 'requests/index'
