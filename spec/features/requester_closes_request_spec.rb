@@ -74,7 +74,6 @@ feature 'Requester closes request to further help', %{
     fill_in 'user[password]', :with => 'qwertyuiop'
     click_button 'Sign in'
     click_button 'I found a shoveler!'
-    page.should_not have_content('SMALL')
     click_link 'Sign Out'
 
     visit root_path

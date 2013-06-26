@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
   def has_open_request?
     open_request = []
     work_requests.each do |work_request|
-      if state == 'open' || state == 'matched'
-        open_request.push
+      if work_request.state == 'open' || work_request.state == 'matched'
+        open_request << work_request
       end
     end
     open_request.present?
