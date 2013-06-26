@@ -16,7 +16,7 @@ class Request < ActiveRecord::Base
   validates_inclusion_of :offer, :in => OFFERS, :message => 'Please indicate how much you are willing to offer'
   validates :offer, :numericality => true
 
-  STATES = %w[open matched complete cancelled]
+  STATES = %w[open matched complete expired cancelled]
   validates_inclusion_of :state, :in => STATES
 
   def volunteer?
@@ -76,6 +76,10 @@ class Request < ActiveRecord::Base
 
   def completed(request)
     request.state = 'complete'
+  end
+
+  def cancel(request)
+    request.state = 'cancelled'
   end
 
 end

@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def welcome
-    @requests = Request.all
-    @request = Request.new
+    if user_signed_in?
+      flash.keep
+      redirect_to requests_path
+    end
   end
 end

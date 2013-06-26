@@ -27,4 +27,14 @@ class User < ActiveRecord::Base
     role == 'requester'
   end
 
+  def has_open_request?
+    open_request = []
+    work_requests.each do |work_request|
+      if state == 'open' || state == 'matched'
+        open_request.push
+      end
+    end
+    open_request.present?
+  end
+
 end

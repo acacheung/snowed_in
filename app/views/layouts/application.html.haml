@@ -3,19 +3,20 @@
   %head
     %title Snowedin
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
     = csrf_meta_tags
 
   %body
-    %p.notice
-      = notice
-    %p.alert
-      = alert
-
     .header
       = render 'shared/header'
+    .flash
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => name
     .main
       = yield
+    .footer
+      = render 'shared/footer'
+
+    = javascript_include_tag "application"
 
     .debug
       = debug(params) if Rails.env.development?

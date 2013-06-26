@@ -1,8 +1,27 @@
 class RequestsController < ApplicationController
 
   def index
-    if current_user && current_user.shoveler?
+    if user_signed_in?
       @requests = Request.all
+      @request = Request.new
+    else
+      redirect_to root_path, :notice => 'You are not authorized!'
+    end
+  end
+
+  def create
+    @request = Request.new(params[:request])
+    @request.requester = current_user
+    if @request.save
+      redirect_to @request, :notice => 'Your request has been posted'
+    else
+      render :action => 'new' # TODO validations need to be passed
+    end
+  end
+
+  def new
+    if current_user && current_user.requester?
+      @request = Request.new
     else
       redirect_to root_path, :notice => 'You are not authorized!'
     end
@@ -16,42 +35,27 @@ class RequestsController < ApplicationController
     end
   end
 
-  def new
-    if current_user && current_user.requester?
-      @request = Request.new
-    else
-      redirect_to root_path, :notice => 'You are not authorized!'
-    end
-  end
-
-  def create
-    @request = Request.new(params[:request])
-    @request.requester = current_user
-    if @request.save
-      redirect_to @request, :notice => 'Request was successfully created'
-    else
-      render :action => 'new'
+  def update
+    @request = Request.find(params[:id])
+    if current_user && current_user == @request.requester
+      if @request.open?
+        @request.matched(@request)
+        @request.save
+        redirect_to :back, :notice => 'Congrats on finding a shoveler!'
+      elsif @request.matched?
+        @request.completed(@request)
+        @request.save
+        redirect_to root_path, :notice => 'Request complete!'
+      end
     end
   end
 
   def destroy
     @request = Request.find(params[:id])
     if current_user && current_user == @request.requester
-      @request.destroy
-      redirect_to root_path, :notice => 'Your request has been cancelled'
-    end
-  end
-
-  def edit
-    @request = Request.find(params[:id])
-    if current_user && current_user == @request.requester
-      if @request.open?
-        @request.matched(@request)
-      elsif @request.matched?
-        @request.completed(@request)
-      end
+      @request.cancel(@request)
       @request.save
-      redirect_to :back, :notice => 'Updated your request'
+      redirect_to root_path, :notice => 'Your request has been cancelled'
     end
   end
 

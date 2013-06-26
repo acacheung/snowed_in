@@ -6,7 +6,11 @@ feature 'Requester can request help', %{
   so I can get matched up with a shoveler
   } do
 
-  scenario 'Requester can add a request for help' do
+  scenario 'Guest cannot request shoveling help'
+
+  scenario 'Shoveler cannot request shoveling help'
+
+  scenario 'Requester can request shoveling' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'Email', :with => 'amanda@panda.com'

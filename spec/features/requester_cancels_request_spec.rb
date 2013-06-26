@@ -40,7 +40,6 @@ feature 'Requester cancels request', %{
   end
 
   scenario 'Requester can cancel request' do
-    prev_count = Request.count
     visit root_path
     click_link 'Sign Up'
     fill_in 'Email', :with => 'amanda@panda.com'
@@ -55,10 +54,8 @@ feature 'Requester cancels request', %{
     choose('small')
     choose(20)
     click_button 'Submit request'
-    expect(prev_count + 1).to eql(Request.count)
     click_button 'Cancel your request'
     page.should have_content('Your request has been cancelled')
-    expect(prev_count).to eql(Request.count)
   end
 
 end

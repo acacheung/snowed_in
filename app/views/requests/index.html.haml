@@ -1,19 +1,15 @@
-- if current_user.shoveler?
-  %h2 FOR VOLUNTEER
-- @requests.each do |request|
-  - if request.offer == 0
-    - if current_user.shoveler? || (current_user == request.requester)
-      = link_to(request) do
-        = request.format_request(request)
-        %br
-        %br
+- if current_user.requester?
+  - if current_user.has_open_request?
+    = render :template => 'dashboards/requester'
+  - else
+    = render 'form'
 
-- if current_user.shoveler?
-  %h2 FOR MONEYS
-- @requests.each do |request|
-  - if request.offer != 0
-    - if current_user.shoveler? || (current_user == request.requester)
-      = link_to(request) do
-        = request.format_request(request)
-        %br
-        %br
+  %a.toggle{:href => '#'} Show past requests
+  .past_requests
+    - @requests.each do |request|
+      - if current_user == request.requester && request.complete?
+        = link_to request_path(request), :class => 'request' do
+          = request.format_request(request)
+
+- elsif current_user.shoveler?
+  = render :template => 'dashboards/shoveler'

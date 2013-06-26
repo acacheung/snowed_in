@@ -2,7 +2,7 @@
 
 - if current_user == @request.requester
   - if @request.open?
-    = link_to 'I found a match!', :controller => 'requests', :action => 'edit'
+    = button_to 'I found a shoveler!', request_path(@request), :method => :put
   - if @request.matched?
-    = link_to 'Request has been completed!', :controller => 'requests', :action => 'edit'
+    = button_to 'Request has been completed!', request_path(@request), :method => :put
   = button_to 'Cancel your request', @request, :method => :delete

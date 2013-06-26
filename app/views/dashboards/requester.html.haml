@@ -1,0 +1,11 @@
+.current_request
+  - @requests.each do |request|
+    - if current_user == request.requester && (request.open? || request.matched?)
+      %h1= request.format_request(request)
+
+      - if current_user == request.requester
+        - if request.open?
+          = button_to 'I found a shoveler!', request_path(request), :method => :put
+        - if request.matched?
+          = button_to 'Request has been completed!', request_path(request), :method => :put
+        = button_to 'Cancel your request', request, :method => :delete

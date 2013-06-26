@@ -52,13 +52,37 @@ feature 'Requester closes request to further help', %{
     choose('small')
     choose(20)
     click_button 'Submit request'
-    click_link 'I found a shoveler!'
-    within('.your_requests') do
-      page.should_not have_content('SMALL')
-    end
-    within('.your_completed_requests') do
-      page.should have_content('SMALL')
-    end
+    click_link 'Sign Out'
+
+    visit root_path
+    click_link 'Sign Up'
+    fill_in 'Email', :with => 'shoveler@test.com'
+    fill_in 'user[password]', :with => 'qwertyuiop'
+    fill_in 'user[password_confirmation]', :with => 'qwertyuiop'
+    fill_in 'user[street]', :with => '376 Summer Street'
+    fill_in 'user[city]', :with => 'Boston'
+    select('MA', :from => 'State')
+    fill_in 'user[zipcode]', :with => '02210'
+    choose('I want to shovel')
+    click_button 'Sign up'
+    page.should have_content('SMALL')
+    click_link 'Sign Out'
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => 'amanda@panda.com'
+    fill_in 'user[password]', :with => 'qwertyuiop'
+    click_button 'Sign in'
+    click_button 'I found a shoveler!'
+    page.should_not have_content('SMALL')
+    click_link 'Sign Out'
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => 'shoveler@test.com'
+    fill_in 'user[password]', :with => 'qwertyuiop'
+    click_button 'Sign in'
+    page.should_not have_content('SMALL')
   end
 
 end

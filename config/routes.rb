@@ -3,9 +3,7 @@ Snowedin::Application.routes.draw do
 
   resources :requests
 
-  ['welcome'].each do |page|
-    get "/#{page}" => "pages##{page}", :as => page
-  end
+  root :to => 'pages#welcome'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +54,6 @@ Snowedin::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#welcome'
 
   # See how all your routes lay out with "rake routes"
 
