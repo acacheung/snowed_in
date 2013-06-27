@@ -7,7 +7,7 @@
   %a.toggle{:href => '#'} Show past requests
   .past_requests
     - @requests.each do |request|
-      - if current_user == request.requester && request.complete?
+      - if current_user == request.requester && (request.complete? || request.expired?)
         = link_to request_path(request), :class => 'request' do
           = request.format_request(request)
 

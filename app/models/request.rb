@@ -70,6 +70,10 @@ class Request < ActiveRecord::Base
     state == 'cancelled'
   end
 
+  def expired?
+    state == 'expired'
+  end
+
   def matched(request)
     request.state = 'matched'
   end
@@ -81,5 +85,12 @@ class Request < ActiveRecord::Base
   def cancel(request)
     request.state = 'cancelled'
   end
+
+  # def should_expire(request)
+  #   time_passed = Time.now - request.created_at
+  #   if time_passed > 432000
+  #     request.state = 'expired'
+  #   end
+  # end
 
 end

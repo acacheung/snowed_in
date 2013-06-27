@@ -10,6 +10,33 @@ FactoryGirl.define do
     state                 "MA"
     zipcode               "02210"
     role                  "shoveler"
+
+    factory :requester do
+      role "requester"
+    end
+
+    factory :shoveler do
+      role "shoveler"
+    end
+  end
+
+  factory :request do
+    requester
+    job_size "small"
+    offer 20
+    state "open"
+
+    factory :open_request do
+      state "open"
+    end
+
+    factory :completed_request do
+      state "complete"
+    end
+
+    factory :matched_request do
+      state "matched"
+    end
   end
 
   # factory :old_requester do

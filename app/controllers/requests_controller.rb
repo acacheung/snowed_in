@@ -48,6 +48,11 @@ class RequestsController < ApplicationController
         redirect_to root_path, :notice => 'Request complete!'
       end
     end
+    # if @request.should_expire?
+    #   @request.expired(@request)
+    #   @request.save
+    #   redirect_to root_path, :notice =>
+    # end
   end
 
   def destroy

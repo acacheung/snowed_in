@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-feature 'Shoveler can view requests for volunteer and for money', %{
+feature 'Shoveler browses requests', %{
   As a shoveler,
-  I want to have separate lists for requests that are for volunteer and for money,
+  I want to browse requests,
   so I can get matched up with a request suited to what I want
   } do
 
