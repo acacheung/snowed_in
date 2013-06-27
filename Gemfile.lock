@@ -75,6 +75,7 @@ GEM
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
     fssm (0.2.10)
+    geocoder (1.1.6)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -182,6 +183,7 @@ DEPENDENCIES
   compass-rails
   devise
   factory_girl_rails
+  geocoder
   haml
   jquery-rails
   launchy
