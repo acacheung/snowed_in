@@ -1,7 +1,7 @@
 Snowedin::Application.routes.draw do
   devise_for :users
 
-  resources :requests
+  resources :requests, except: :edit
 
   root :to => 'pages#welcome'
 

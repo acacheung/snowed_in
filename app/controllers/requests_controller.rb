@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
     @request = Request.new(params[:request])
     @request.requester = current_user
     if @request.save
-      redirect_to @request, :notice => 'Your request has been posted'
+      redirect_to root_path, :notice => 'Your request has been posted'
     else
       render :action => 'new' # TODO validations need to be passed
     end
@@ -51,6 +51,7 @@ class RequestsController < ApplicationController
   end
 
   def destroy
+    # NOT A REAL DESTROY!
     @request = Request.find(params[:id])
     if current_user && current_user == @request.requester
       @request.cancel(@request)

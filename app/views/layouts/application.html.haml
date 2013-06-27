@@ -7,16 +7,17 @@
 
   %body
     .header
-      = render 'shared/header'
-    .flash
+      .wrap
+        = render 'shared/header'
+    .flash.wrap
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => name
     .main
-      = yield
+      .wrap
+        = yield
     .footer
-      = render 'shared/footer'
+      .wrap
+        = render 'shared/footer'
 
     = javascript_include_tag "application"
 
-    .debug
-      = debug(params) if Rails.env.development?

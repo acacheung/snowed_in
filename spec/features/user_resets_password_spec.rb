@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "User resets password", %Q{
+feature "User resets password", %{
   As a user,
   I want to reset my password when I forget my password
   so I can continue to use the app.

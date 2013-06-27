@@ -6,19 +6,33 @@ feature 'Requester can request help', %{
   so I can get matched up with a shoveler
   } do
 
-  scenario 'Guest cannot request shoveling help'
+  given(:email1)     { 'requester@example.com' }
+  given(:email2)     { 'shoveler@example.com' }
+  given(:password)  { 'password'}
 
-  scenario 'Shoveler cannot request shoveling help'
+  scenario 'Guest cannot request shoveling help' do
+    visit requests_path
+    page.should have_content('You are not authorized!')
+  end
+
+  scenario 'Shoveler cannot request shoveling help' do
+    visit root_path
+    click_link 'Sign Up'
+    fill_in 'Email', :with => email2
+    fill_in 'user[password]', :with => password
+    fill_in 'user[password_confirmation]', :with => password
+    fill_in 'user[zipcode]', :with => '02210'
+    choose('I want to shovel')
+    click_button 'Sign up'
+    page.should_not have_content('Post a new request')
+  end
 
   scenario 'Requester can request shoveling' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'Email', :with => 'amanda@panda.com'
-    fill_in 'user[password]', :with => 'qwertyuiop'
-    fill_in 'user[password_confirmation]', :with => 'qwertyuiop'
-    fill_in 'user[street]', :with => '377 Summer Street'
-    fill_in 'user[city]', :with => 'Boston'
-    select('MA', :from => 'State')
+    fill_in 'Email', :with => email1
+    fill_in 'user[password]', :with => password
+    fill_in 'user[password_confirmation]', :with => password
     fill_in 'user[zipcode]', :with => '02210'
     choose('I need help shoveling')
     click_button 'Sign up'

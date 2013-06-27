@@ -1,10 +1,12 @@
 %h2 FOR VOLUNTEER
-- @requests.each do |request|
-  - if request.offer == 0 && request.open?
-    = link_to request_path(request), :class => 'request' do
-      = request.format_request(request)
+.volunteer_requests
+  - @requests.each do |request|
+    - if request.offer == 0 && request.open?
+      = link_to request_path(request), :class => 'request' do
+        = request.format_request(request)
 %h2 FOR MONEYS
-- @requests.each do |request|
-  - if request.offer != 0 && request.open?
-    = link_to request_path(request), :class => 'request' do
-      = request.format_request(request)
+.for_money_requests
+  - @requests.each do |request|
+    - if request.offer != 0 && request.open?
+      = link_to request_path(request), :class => 'request' do
+        = request.format_request(request)

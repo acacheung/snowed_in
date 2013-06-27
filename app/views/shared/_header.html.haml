@@ -1,8 +1,8 @@
 - if user_signed_in?
   = link_to 'SnowedIn', requests_path, :class => 'logo'
   = "Hello, #{current_user.name} (#{current_user.role})"
-  = link_to 'Sign Out', destroy_user_session_path, :method => :delete
+  = link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => 'header_link'
 - else
   = link_to 'SnowedIn', root_path, :class => 'logo'
-  = link_to 'Sign Up', new_user_registration_path
-  = link_to 'Sign In', new_user_session_path
+  = link_to 'Sign Up', new_user_registration_path, :class => 'header_link'
+  = link_to 'Sign In', new_user_session_path, :class => 'header_link'
