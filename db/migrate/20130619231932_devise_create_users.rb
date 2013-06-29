@@ -33,11 +33,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
-      t.string :name
-      t.string :street
-      t.string :city
-      t.string :state
-      t.string :zipcode, :null => false
+      t.string :name, :null => false
+      t.string :address, :null => false
+      t.float :latitude
+      t.float :longtitude
       t.boolean :old_or_disabled, :default => false, :null => false
       t.string :role, :null => false
 

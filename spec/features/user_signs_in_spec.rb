@@ -24,7 +24,7 @@ feature 'User signs in', %{
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     click_link 'Sign Out'

@@ -21,7 +21,7 @@ feature 'Requester can request help', %{
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '100 Summer Street Boston, MA'
     choose('I want to shovel')
     click_button 'Sign up'
     page.should_not have_content('Post a new request')
@@ -33,13 +33,13 @@ feature 'Requester can request help', %{
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     choose('small')
     choose(20)
     click_button 'Submit request'
-    page.should have_content('02210')
+    page.should have_content('337 Summer Street')
   end
 
 end

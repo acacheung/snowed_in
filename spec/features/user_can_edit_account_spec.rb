@@ -20,12 +20,12 @@ feature "User can edit account", %{
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     click_link 'Edit account'
     fill_in 'user[current_password]', :with => password
-    fill_in 'user[zipcode]', :with => '02215'
+    fill_in 'user[address]', :with => '338 Summer Street Boston, MA'
     click_button 'Update'
     page.should have_content('You updated your account successfully')
   end

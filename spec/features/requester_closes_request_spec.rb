@@ -16,8 +16,7 @@ feature 'Requester closes request to further help', %{
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[street]', :with => '377 Summer Street'
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     choose('small')
@@ -29,10 +28,10 @@ feature 'Requester closes request to further help', %{
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '100 Summer Street Boston, MA'
     choose('I want to shovel')
     click_button 'Sign up'
-    click_link '377 Summer Street'
+    click_link '$20'
     page.should_not have_content('I found a shoveler!')
   end
 
@@ -42,8 +41,7 @@ feature 'Requester closes request to further help', %{
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[street]', :with => '377 Summer Street'
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     choose('small')
@@ -56,8 +54,7 @@ feature 'Requester closes request to further help', %{
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[street]', :with => '376 Summer Street'
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '100 Summer Street Boston, MA'
     choose('I want to shovel')
     click_button 'Sign up'
     page.should have_content('SMALL')

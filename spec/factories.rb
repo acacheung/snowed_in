@@ -5,10 +5,7 @@ FactoryGirl.define do
     password              "password"
     password_confirmation "password"
     name                  "Amanda"
-    street                "377 Summer Street"
-    city                  "Boston"
-    state                 "MA"
-    zipcode               "02210"
+    address                "377 Summer Street Boston, MA"
     role                  "shoveler"
 
     factory :requester do

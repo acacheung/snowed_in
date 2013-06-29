@@ -7,17 +7,7 @@
   = f.input :email, :required => true, :autofocus => true
   = f.input :password, :required => true
   = f.input :password_confirmation, :required => true
-
-  %p Note: Address is used to help find matches closest to you. We will not be sending you any mail.
-
-  = f.input :street
-  = f.input :city
-
-  = f.label :state
-  = f.select :state,
-  ['', 'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
-
-  = f.input :zipcode, :required => true
+  = f.input :address
 
   = f.input :role,
   :label => false,

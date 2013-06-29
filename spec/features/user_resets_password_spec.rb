@@ -14,7 +14,7 @@ feature "User resets password", %{
     fill_in 'Email', with: email
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password
-    fill_in 'Zipcode', with: '02461'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     click_link 'Sign Out'
@@ -30,7 +30,7 @@ feature "User resets password", %{
     fill_in 'Email', with: email
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password
-    fill_in 'Zipcode', with: '02461'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     click_link 'Sign Out'
@@ -46,7 +46,7 @@ feature "User resets password", %{
     fill_in 'Email', with: email
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password
-    fill_in 'Zipcode', with: '02461'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     click_link 'Sign Out'

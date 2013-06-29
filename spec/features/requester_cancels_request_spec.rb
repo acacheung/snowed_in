@@ -16,7 +16,7 @@ feature 'Requester cancels request', %{
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02215'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     choose('small')
@@ -28,11 +28,11 @@ feature 'Requester cancels request', %{
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '100 Summer Street Boston, MA'
     choose('I want to shovel')
     click_button 'Sign up'
-    page.should have_content('02215')
-    click_link '02215'
+    page.should have_content('337 Summer Street')
+    click_link '337 Summer Street'
     page.should_not have_content('Cancel your request')
   end
 
@@ -42,7 +42,7 @@ feature 'Requester cancels request', %{
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     choose('small')

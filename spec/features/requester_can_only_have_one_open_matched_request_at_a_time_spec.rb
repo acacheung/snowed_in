@@ -15,7 +15,7 @@ feature 'Requester can only have one open/matched request at a time', %{
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     choose('small')
@@ -23,7 +23,5 @@ feature 'Requester can only have one open/matched request at a time', %{
     click_button 'Submit request'
     page.should_not have_content('Post a new request')
   end
-
-  # TODO not protected on database layer...
 
 end

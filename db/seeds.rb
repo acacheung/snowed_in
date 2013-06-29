@@ -3,10 +3,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Paw Paw',
-  :street => '230 Stuart Street',
-  :city => 'Boston',
-  :state => 'MA',
-  :zipcode => '02116',
+  :address => '230 Stuart Street Boston, MA',
   :old_or_disabled => 'true',
   :role => 'requester')
 
@@ -19,10 +16,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Dai Come Mou',
-  :street => '743 Washington Street',
-  :city => 'Boston',
-  :state => 'MA',
-  :zipcode => '02135',
+  :address => '743 Washington Street Boston, MA',
   :old_or_disabled => 'true',
   :role => 'requester')
 
@@ -35,10 +29,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Miss Ma',
-  :street => '557 Highland Avenue',
-  :city => 'Needham',
-  :state => 'MA',
-  :zipcode => '02494',
+  :address => '557 Highland Avenue Needham, MA',
   :old_or_disabled => 'true',
   :role => 'requester')
 
@@ -51,10 +42,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Gertrude',
-  :street => '565 5th Avenue',
-  :city => 'San Diego',
-  :state => 'CA',
-  :zipcode => '92101',
+  :address => '565 5th Avenue San Diego, CA',
   :old_or_disabled => 'true',
   :role => 'requester')
 
@@ -69,10 +57,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Johnny',
-  :street => '30 Langley Road',
-  :city => 'Newton',
-  :state => 'MA',
-  :zipcode => '02459',
+  :address => '30 Langley Road Newton, MA',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -86,10 +71,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Come Mou',
-  :street => '19 Hargrave Circle',
-  :city => 'Newton',
-  :state => 'MA',
-  :zipcode => '02461',
+  :address => '19 Hargrave Circle Newton, MA',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -103,10 +85,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Bernice',
-  :street => '29 Boylston Street',
-  :city => 'Newton',
-  :state => 'MA',
-  :zipcode => '02467',
+  :address => '29 Boylston Street Newton, MA',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -120,10 +99,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'James',
-  :street => '1412 Beacon Street',
-  :city => 'Brookline',
-  :state => 'MA',
-  :zipcode => '02446',
+  :address => '1412 Beacon Street Brookline, MA',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -137,10 +113,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Tanny',
-  :street => '140 Brandeis Road',
-  :city => 'Newton',
-  :state => 'MA',
-  :zipcode => '02459',
+  :address => '140 Brandeis Road Newton, MA',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -154,10 +127,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Brianna Zeilinger',
-  :street => '265 Langdon Street',
-  :city => 'Madison',
-  :state => 'WI',
-  :zipcode => '53703',
+  :address => '265 Langdon Street Madison, WI',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -171,10 +141,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Johnice Miller',
-  :street => '5118 6th Avenue',
-  :city => 'Kenosha',
-  :state => 'WI',
-  :zipcode => '53140',
+  :address => '5118 6th Avenue Kenosha, WI',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -188,10 +155,7 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Mandalay',
-  :street => '3950 S Las Vegas Blvd',
-  :city => 'Las Vegas',
-  :state => 'NV',
-  :zipcode => '89119',
+  :address => '3950 S Las Vegas Blvd Las Vegas, NV',
   :old_or_disabled => 'false',
   :role => 'requester')
 
@@ -207,7 +171,5 @@ User.create(
   :password => '1234qwer',
   :password_confirmation => '1234qwer',
   :name => 'Amanda',
-  :city => 'Newton',
-  :state => 'MA',
-  :zipcode => '02461',
+  :address => '21 Hargrave Circle Newton, MA',
   :role => 'shoveler')

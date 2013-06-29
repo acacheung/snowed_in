@@ -33,10 +33,6 @@ class Request < ActiveRecord::Base
     "#{job_size.upcase}"
   end
 
-  def format_address(street, city, state, zipcode)
-    "#{street} #{city}, #{state} #{zipcode}"
-  end
-
   def ago(created_at)
     ago = (Time.now - created_at).to_i
     if ago < 60
@@ -51,7 +47,7 @@ class Request < ActiveRecord::Base
   end
 
   def format_request(request)
-    "#{format_for_money(offer)} #{format_job_size(job_size)} shoveling job at #{format_address(requester.street, requester.city, requester.state, requester.zipcode)} (posted #{ago(created_at)} ago)"
+    "#{format_for_money(offer)} #{format_job_size(job_size)} shoveling job at #{requester.address} (posted #{ago(created_at)} ago)"
   end
 
   def open?

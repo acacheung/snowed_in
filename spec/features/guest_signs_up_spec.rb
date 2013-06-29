@@ -19,10 +19,7 @@ feature 'Guest signs up', %{
     fill_in 'Email', :with => 'amanda@panda.com'
     fill_in 'user[password]', :with => 'qwertyuiop'
     fill_in 'user[password_confirmation]', :with => 'qwertyuiop'
-    fill_in 'user[street]', :with => '377 Summer Street'
-    fill_in 'user[city]', :with => 'Boston'
-    select('MA', :from => 'State')
-    fill_in 'user[zipcode]', :with => '02210'
+    fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
     page.should have_content('You have signed up successfully')
