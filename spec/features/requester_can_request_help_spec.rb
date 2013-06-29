@@ -18,6 +18,7 @@ feature 'Requester can request help', %{
   scenario 'Shoveler cannot request shoveling help' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -30,6 +31,7 @@ feature 'Requester can request help', %{
   scenario 'Requester can request shoveling' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Minnie'
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

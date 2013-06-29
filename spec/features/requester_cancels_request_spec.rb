@@ -13,6 +13,7 @@ feature 'Requester cancels request', %{
   scenario 'Shoveler cannot cancel request' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -25,6 +26,7 @@ feature 'Requester cancels request', %{
     click_link 'Sign Out'
 
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Minnie'
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -39,6 +41,7 @@ feature 'Requester cancels request', %{
   scenario 'Requester can cancel request' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

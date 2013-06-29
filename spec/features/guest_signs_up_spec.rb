@@ -16,6 +16,7 @@ feature 'Guest signs up', %{
   scenario 'Guest can sign up for an account' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => 'amanda@panda.com'
     fill_in 'user[password]', :with => 'qwertyuiop'
     fill_in 'user[password_confirmation]', :with => 'qwertyuiop'

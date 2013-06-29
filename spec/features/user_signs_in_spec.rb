@@ -21,6 +21,7 @@ feature 'User signs in', %{
   scenario 'User can sign in if they already have an account' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

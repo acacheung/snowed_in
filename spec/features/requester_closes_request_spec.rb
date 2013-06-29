@@ -13,6 +13,7 @@ feature 'Requester closes request to further help', %{
   scenario 'Shoveler cannot close the request to further help' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -25,6 +26,7 @@ feature 'Requester closes request to further help', %{
     click_link 'Sign Out'
 
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Minnie'
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -38,6 +40,7 @@ feature 'Requester closes request to further help', %{
   scenario 'Requester can close the request to further help' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -51,6 +54,7 @@ feature 'Requester closes request to further help', %{
 
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Minnie'
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

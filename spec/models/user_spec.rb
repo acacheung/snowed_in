@@ -5,6 +5,7 @@ describe User do
   let(:user) {FactoryGirl.build(:user)}
 
   # it { should validate_presence_of(:zipcode) }
+  it { should validate_presence_of(:name) }
   it { should validate_presence_of(:role) }
 
   it { should allow_value('requester').for(:role) }

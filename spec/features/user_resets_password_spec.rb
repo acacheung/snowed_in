@@ -11,6 +11,7 @@ feature "User resets password", %{
 
   scenario "User receives an email after clicking reset password" do
     visit new_user_registration_path
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', with: email
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password
@@ -27,6 +28,7 @@ feature "User resets password", %{
 
   scenario "User sees a link to reset password in email" do
     visit new_user_registration_path
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', with: email
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password
@@ -43,6 +45,7 @@ feature "User resets password", %{
 
   scenario "User sees a message that they have reset their password" do
     visit new_user_registration_path
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', with: email
     fill_in 'user_password', with: password
     fill_in 'user_password_confirmation', with: password

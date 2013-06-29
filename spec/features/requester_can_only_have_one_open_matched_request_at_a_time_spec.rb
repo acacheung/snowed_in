@@ -6,12 +6,14 @@ feature 'Requester can only have one open/matched request at a time', %{
   because it does not make sense to have more than one.
   } do
 
+  given(:name)      { 'Amanda' }
   given(:email)     { 'requester@example.com' }
   given(:password)  { 'password' }
 
   scenario 'Requester can only have one open/matched request' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => name
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

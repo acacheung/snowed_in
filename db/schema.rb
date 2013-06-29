@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20130620214903) do
     t.string   "name",                                      :null => false
     t.string   "address",                                   :null => false
     t.float    "latitude"
-    t.float    "longtitude"
+    t.float    "longitude"
     t.boolean  "old_or_disabled",        :default => false, :null => false
     t.string   "role",                                      :null => false
     t.datetime "created_at",                                :null => false

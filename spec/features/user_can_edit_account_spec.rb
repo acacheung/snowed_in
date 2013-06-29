@@ -17,6 +17,7 @@ feature "User can edit account", %{
   scenario "User can edit account" do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

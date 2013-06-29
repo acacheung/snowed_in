@@ -18,6 +18,7 @@ feature 'Shoveler browses requests', %{
   scenario 'Shoveler sees volunteer requests' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -30,6 +31,7 @@ feature 'Shoveler browses requests', %{
     click_link 'Sign Out'
 
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Minnie'
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -44,6 +46,7 @@ feature 'Shoveler browses requests', %{
   scenario 'Shoveler sees for money requests' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => email1
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -56,6 +59,7 @@ feature 'Shoveler browses requests', %{
     click_link 'Sign Out'
 
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Minnie'
     fill_in 'Email', :with => email2
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

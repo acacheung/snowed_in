@@ -6,12 +6,14 @@ feature 'Old / uncapable requester requests are for volunteer', %{
   so shovelers can volunteer to help me
   } do
 
+  given(:name)      { 'Amanda' }
   given(:email)     { 'requester@example.com' }
   given(:password)  { 'qwertyuiop' }
 
   scenario 'Capable requester can see offer select when creating a request' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => name
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password
@@ -25,6 +27,7 @@ feature 'Old / uncapable requester requests are for volunteer', %{
   scenario 'Old / uncapable requester cannot see offer select when creating a request' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => name
     fill_in 'Email', :with => email
     fill_in 'user[password]', :with => password
     fill_in 'user[password_confirmation]', :with => password

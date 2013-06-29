@@ -9,6 +9,7 @@ feature 'User signs out', %{
   scenario 'User can sign out after signing in' do
     visit root_path
     click_link 'Sign Up'
+    fill_in 'Name', :with => 'Amanda'
     fill_in 'Email', :with => 'user@gmail.com'
     fill_in 'user[password]', :with => 'qwertyuiop'
     fill_in 'user[password_confirmation]', :with => 'qwertyuiop'

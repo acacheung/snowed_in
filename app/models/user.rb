@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :address, :latitude, :longtitude, :old_or_disabled, :role
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :address, :latitude, :longitude, :old_or_disabled, :role
+
+  validates_presence_of :name, :email, :address
+
+  geocoded_by :address
+  after_validation :geocode #, :if => :address_changed?
 
   ROLES = %w[requester shoveler]
   validates_inclusion_of :role, :in => ROLES, :message => 'Please choose between needing help and shoveling'
