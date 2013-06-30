@@ -27,10 +27,6 @@ class Request < ActiveRecord::Base
     offer > 0
   end
 
-  def past_requests(request, current_user)
-    current_user == request.requester && (request.complete? || request.expired?)
-  end
-
   def format_for_money(offer)
     unless offer == 0
       "$#{offer} for a"
@@ -89,12 +85,5 @@ class Request < ActiveRecord::Base
   def cancel(request)
     request.state = 'cancelled'
   end
-
-  # def should_expire(request)
-  #   time_passed = Time.now - request.created_at
-  #   if time_passed > 432000
-  #     request.state = 'expired'
-  #   end
-  # end
 
 end

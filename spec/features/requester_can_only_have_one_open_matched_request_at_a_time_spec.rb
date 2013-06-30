@@ -41,7 +41,7 @@ feature 'Requester can only have one open/matched request at a time', %{
     click_button 'Submit request'
     click_button('I found a shoveler!')
     click_button('Request has been completed!')
-    page.should have_content('Show past requests')
+    page.should have_content('My past requests')
   end
 
   scenario 'Requester cannot see past requests if she does not have any' do
@@ -54,7 +54,7 @@ feature 'Requester can only have one open/matched request at a time', %{
     fill_in 'user[address]', :with => '337 Summer Street Boston, MA'
     choose('I need help shoveling')
     click_button 'Sign up'
-    page.should_not have_content('Show past requests')
+    page.should_not have_content('My past requests')
   end
 
 end

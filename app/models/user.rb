@@ -38,4 +38,14 @@ class User < ActiveRecord::Base
     open_request.present?
   end
 
+  def past_requests
+    @past_requests = []
+    work_requests.each do |work_request|
+      if work_request.state == 'expired' || work_request.state == 'complete'
+        @past_requests << work_request
+      end
+    end
+    @past_requests
+  end
+
 end

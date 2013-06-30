@@ -4,18 +4,12 @@
   - else
     = render 'form'
 
-  - @past_requests = []
-  - @requests.each do |request|
-    - if request.past_requests(request, current_user)
-
-      - @past_requests << request
-
-  - if @past_requests.any?
-    = link_to 'Show past requests', '#', :class => 'toggle'
+  - if current_user.past_requests.any?
+    = link_to 'My past requests', '#', :class => 'toggle'
     .past_requests
-      - @past_requests.each do |past_request|
+      - current_user.past_requests.each do |past_request|
         = link_to request_path(past_request), :class => 'request' do
-          = past_request.format_request(past_request)
+          - past_request.format_request(past_request)
 
 - elsif current_user.shoveler?
   = render :template => 'dashboards/shoveler'
