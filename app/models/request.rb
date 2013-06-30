@@ -23,6 +23,14 @@ class Request < ActiveRecord::Base
     offer == 0
   end
 
+  def for_money?
+    offer > 0
+  end
+
+  def past_requests(request, current_user)
+    current_user == request.requester && (request.complete? || request.expired?)
+  end
+
   def format_for_money(offer)
     unless offer == 0
       "$#{offer} for a"

@@ -4,12 +4,18 @@
   - else
     = render 'form'
 
-  %a.toggle{:href => '#'} Show past requests
-  .past_requests
-    - @requests.each do |request|
-      - if current_user == request.requester && (request.complete? || request.expired?)
-        = link_to request_path(request), :class => 'request' do
-          = request.format_request(request)
+  - @past_requests = []
+  - @requests.each do |request|
+    - if request.past_requests(request, current_user)
+
+      - @past_requests << request
+
+  - if @past_requests.any?
+    = link_to 'Show past requests', '#', :class => 'toggle'
+    .past_requests
+      - @past_requests.each do |past_request|
+        = link_to request_path(past_request), :class => 'request' do
+          = past_request.format_request(past_request)
 
 - elsif current_user.shoveler?
   = render :template => 'dashboards/shoveler'

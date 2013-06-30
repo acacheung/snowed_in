@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to root_path, :notice => 'Your request has been posted'
     else
-      render :action => 'new' # TODO validations need to be passed
+      redirect_to :back, :notice => 'There were errors with your request, please fill out all required fields.'
     end
   end
 
