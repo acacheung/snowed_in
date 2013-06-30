@@ -2,7 +2,7 @@ include ActionView::Helpers::TextHelper
 
 class Request < ActiveRecord::Base
 
-  attr_accessible :job_size, :offer, :requester_id, :state
+  attr_accessible :requester_id, :job_size, :offer, :state
 
   validates_presence_of :requester, :job_size, :offer, :state
 
