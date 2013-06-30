@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :address
 
   geocoded_by :address
-  after_validation :geocode #, :if => :address_changed?
+  after_validation :geocode, :if => :address_changed?
 
   ROLES = %w[requester shoveler]
   validates_inclusion_of :role, :in => ROLES, :message => 'Please choose between needing help and shoveling'

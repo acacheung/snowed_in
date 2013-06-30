@@ -1,4 +1,9 @@
-%h2= @request.format_request(@request)
+%h2
+  = @request.format_request(@request)
+  = "#{current_user.distance_to(@request.requester.address).round(2)} miles away"
+
+= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@request.requester.latitude}%2C#{@request.requester.longitude}"
+
 
 %p A chat will go here later
 %p chat...
