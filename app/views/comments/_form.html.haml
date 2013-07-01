@@ -1,3 +1,4 @@
 = simple_form_for([@request, @comment || Comment.new]) do |f|
-  = f.input :body, :label => false
+  %br
+  = f.input :body, :label => false, input_html: { class: 'chat_input' }
   = f.submit 'Enter'

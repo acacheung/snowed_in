@@ -6,7 +6,7 @@
         = link_to request_path(request), :class => 'request' do
           = request.format_request(request)
           .index_request_distance
-            %span.fontello m
+            %span.fontello c
             = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"
 %h2 FOR MONEYS
 .for_money_requests
@@ -16,5 +16,5 @@
         = link_to request_path(request), :class => 'request' do
           = request.format_request(request)
           .index_request_distance
-            %span.fontello m
+            %span.fontello c
             = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"

@@ -2,15 +2,15 @@
   = @request.format_request(@request)
   - if current_user.shoveler?
     .show_request_distance
-      %span.fontello m
+      %span.fontello c
       = "#{pluralize(current_user.distance_to(@request.requester.address).round(2), 'mile')} away"
 
-= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@request.requester.latitude}%2C#{@request.requester.longitude}"
+.map_wrap
+  #map
 
+%h3 Chat
 - if current_user.shoveler?
-  %h3
-    = "Chat with #{@request.requester.name} to get started"
-  %p When are you available to start? Do you have all the tools you need?
+  %p.hint When are you available to start? Do you have all the tools you need?
 
 .chat
   - if user_signed_in?
@@ -19,3 +19,28 @@
         = "#{comment.user.name}: #{comment.body}"
         %br
   = render 'comments/form'
+
+
+:javascript
+  var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
+      .setView([#{@request.requester.latitude}, #{@request.requester.longitude}], 18);
+
+  L.mapbox.markerLayer({
+    // this feature is in the GeoJSON format: see geojson.org
+    // for the full specification
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        // coordinates here are in longitude, latitude order because
+        // x, y is the standard for GeoJSON and many formats
+        coordinates: [-77, 37.9]
+    },
+    properties: {
+        title: 'Shovel me!',
+        // description: 'Just one of me',
+        // one can customize markers by adding simplestyle properties
+        // http://mapbox.com/developers/simplestyle/
+        'marker-size': 'large',
+        'marker-color': '#f0a'
+    }
+  }).addTo(map);
