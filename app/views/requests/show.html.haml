@@ -2,7 +2,8 @@
   = @request.format_request(@request)
   - if current_user.shoveler?
     .show_request_distance
-      = "#{current_user.distance_to(@request.requester.address).round(2)} miles away"
+      %span.fontello m
+      = "#{pluralize(current_user.distance_to(@request.requester.address).round(2), 'mile')} away"
 
 = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@request.requester.latitude}%2C#{@request.requester.longitude}"
 

@@ -7,7 +7,7 @@
           = request.format_request(request)
           .index_request_distance
             %span.fontello m
-            = "#{current_user.distance_to(request.requester.address).round(2)} miles away"
+            = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"
 %h2 FOR MONEYS
 .for_money_requests
   - @requests.each do |request|
@@ -17,4 +17,4 @@
           = request.format_request(request)
           .index_request_distance
             %span.fontello m
-            = "#{current_user.distance_to(request.requester.address).round(2)} miles away"
+            = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"
