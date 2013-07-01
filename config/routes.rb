@@ -1,7 +1,9 @@
 Snowedin::Application.routes.draw do
   devise_for :users
 
-  resources :requests, except: :edit
+  resources :requests, except: :edit do
+    resources :comments, only: :create
+  end
 
   root :to => 'pages#welcome'
 

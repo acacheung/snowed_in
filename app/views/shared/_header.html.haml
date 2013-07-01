@@ -1,9 +1,12 @@
 - if user_signed_in?
   = link_to 'SnowedIn', requests_path, :class => 'logo'
-  = "Hello, #{current_user.name}"
-  = link_to 'Edit account', edit_user_registration_path, :class => 'header_link'
-  = link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => 'header_link'
+  %nav.header_links
+    %span.header_link.greet
+      = "Hello, #{current_user.name}"
+    = link_to 'Edit account', edit_user_registration_path, :class => 'header_link'
+    = link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => 'header_link'
 - else
   = link_to 'SnowedIn', root_path, :class => 'logo'
-  = link_to 'Sign Up', new_user_registration_path, :class => 'header_link'
-  = link_to 'Sign In', new_user_session_path, :class => 'header_link'
+  %nav.header_links
+    = link_to 'Sign Up', new_user_registration_path, :class => 'header_link'
+    = link_to 'Sign In', new_user_session_path, :class => 'header_link'

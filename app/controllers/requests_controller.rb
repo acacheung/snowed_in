@@ -30,6 +30,8 @@ class RequestsController < ApplicationController
   def show
     if user_signed_in?
       @request = Request.find(params[:id])
+      @comment = @request.comments.new
+      @comment.user = current_user
     else
       redirect_to root_path, :notice => 'You are not authorized!'
     end
@@ -48,11 +50,6 @@ class RequestsController < ApplicationController
         redirect_to root_path, :notice => 'Request complete!'
       end
     end
-    # if @request.should_expire?
-    #   @request.expired(@request)
-    #   @request.save
-    #   redirect_to root_path, :notice =>
-    # end
   end
 
   def destroy

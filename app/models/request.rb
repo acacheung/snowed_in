@@ -9,6 +9,10 @@ class Request < ActiveRecord::Base
   belongs_to :requester, :class_name => 'User', :foreign_key => 'requester_id'
   belongs_to :shoveler, :class_name => 'User', :foreign_key => 'shoveler_id'
 
+  has_many  :comments,
+            inverse_of: :request,
+            dependent: :destroy
+
   SIZES = %w[small medium big]
   validates_inclusion_of :job_size, :in => SIZES, :message => 'Please choose small, medium, or big'
 
@@ -51,7 +55,7 @@ class Request < ActiveRecord::Base
   end
 
   def format_request(request)
-    "#{format_for_money(offer)} #{format_job_size(job_size)} shoveling job at #{requester.address} (posted #{ago(created_at)} ago)"
+    "#{format_for_money(offer)} #{format_job_size(job_size)}-sized shoveling request at #{requester.address} (posted #{ago(created_at)} ago)"
   end
 
   def open?

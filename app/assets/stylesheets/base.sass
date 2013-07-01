@@ -1,8 +1,16 @@
-@import 'compass/reset'
+@import compass/reset
+@import compass/css3
+
+$teal: #50C9C6
+$black: #000000
+$gray: #C8C8C8
+$white: #FFFFFF
+
++font-face('fontello', font-files('/assets/fontello.svg'))
 
 html
   line-height: 1.5
-  font-family: open sans
+  font-family: 'edmondsans'
 
 h1
   font:
@@ -22,6 +30,12 @@ h3
 label
   margin-right: .75em
 
+a
+  text-decoration: none
+  +transition-duration(.25s)
+  &:hover
+    color: #F35A57
+
 .wrap
   margin:
     right: auto
@@ -29,4 +43,22 @@ label
   padding:
     right: 20px
     left: 20px
-  max-width: 980px
+  max-width: 800px
+
+.notice_wrap
+  height: 40px
+
+#notice
+  position: relative
+  top: 10px
+  padding:
+    top: 3px
+    bottom: 3px
+  border: 1px solid $teal
+  +border-radius(5px)
+  background-color: rgba($teal, .2)
+  text-align: center
+  color: $teal
+
+.fontello
+  font-family: 'fontello'

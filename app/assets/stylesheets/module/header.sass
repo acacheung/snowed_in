@@ -1,16 +1,23 @@
-.header
-  background-color: black
-  color: white
+@import base
 
+.header
+  overflow: auto
+  background-color: $black
 
 .logo
+  float: left
   font:
     size: 2em
     weight: bold
 
+.header_links
+  position: relative
+  top: .75em
+  float: right
+
 .header_link
-  padding-top: 1em
+  padding-left: 1em
   text-align: right
-  color: gray
-  &:not(:last-child)
-    padding-right: 1em
+
+.greet
+  color: $white

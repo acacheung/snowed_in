@@ -1,0 +1,19 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "glyphs": [
+    {
+      "uid": "d26795657ef6fb008bee4d54c358f7c8",
+      "css": "snow",
+      "code": 115,
+      "src": "typicons"
+    },
+    {
+      "uid": "22cfc7af2c4f158b37317c65c92b48c2",
+      "css": "location",
+      "code": 109,
+      "src": "elusive"
+    }
+  ]
+}

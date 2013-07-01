@@ -1,11 +1,2 @@
-/ - if user_signed_in?
-/   %h1= "Welcome, #{current_user.name} (#{current_user.role})"
-/   - if current_user.requester?
-/     = render 'requester'
-/   - elsif current_user.shoveler?
-/     = render 'shoveler'
-/ - else
-/   = render 'guest'
-
 %h1 Welcome to SnowedIn!
 %p SnowedIn is an app to help match shovelers with people who need help shoveling their driveways and sidewalks in the wintertime. There is a volunteer-based system for those that want to help shovel for the elderly and disabled. Let's get shoveling!

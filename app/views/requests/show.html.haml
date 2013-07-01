@@ -1,17 +1,20 @@
 %h2
   = @request.format_request(@request)
   - if current_user.shoveler?
-    = "#{current_user.distance_to(@request.requester.address).round(2)} miles away"
+    .show_request_distance
+      = "#{current_user.distance_to(@request.requester.address).round(2)} miles away"
 
 = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@request.requester.latitude}%2C#{@request.requester.longitude}"
 
 - if current_user.shoveler?
   %h3
     = "Chat with #{@request.requester.name} to get started"
-  %p When are you available to start?
+  %p When are you available to start? Do you have all the tools you need?
 
-%p A chat will go here later
-%p chat...
-%p chat...
-%p chat...
-%p chat...
+.chat
+  - if user_signed_in?
+    %p
+      - @request.comments.each do |comment|
+        = "#{comment.user.name}: #{comment.body}"
+        %br
+  = render 'comments/form'

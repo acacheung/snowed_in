@@ -16,8 +16,16 @@ class User < ActiveRecord::Base
   ROLES = %w[requester shoveler]
   validates_inclusion_of :role, :in => ROLES, :message => 'Please choose between needing help and shoveling'
 
-  has_many :work_requests, :class_name => 'Request', :foreign_key => :requester_id
-  has_many :bids, :class_name => 'Request', :foreign_key => :shoveler_id
+  has_many :work_requests,
+           :class_name => 'Request',
+           :foreign_key => :requester_id
+
+  has_many :bids,
+           :class_name => 'Request',
+           :foreign_key => :shoveler_id
+
+  has_many :comments,
+           inverse_of: :user
 
   def shoveler?
     role == 'shoveler'
