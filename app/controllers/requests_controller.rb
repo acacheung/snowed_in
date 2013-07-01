@@ -30,8 +30,6 @@ class RequestsController < ApplicationController
   def show
     if user_signed_in?
       @request = Request.find(params[:id])
-      @comment = @request.comments.new
-      @comment.user = current_user
     else
       redirect_to root_path, :notice => 'You are not authorized!'
     end
