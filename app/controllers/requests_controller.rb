@@ -2,8 +2,16 @@ class RequestsController < ApplicationController
 
   def index
     if user_signed_in?
-      @requests = Request.all
+      if current_user.role == 'shoveler'
+        @requests = Request.near(current_user)
+      elsif current_user.role == 'requester'
+        @requests = Request.all
+      end
       @request = Request.new
+      # respond_to do |format|
+      #   format.html { render :index }
+      #   format.json { render json: @requests}
+      # end
     else
       redirect_to root_path, :notice => 'You are not authorized!'
     end

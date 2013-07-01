@@ -23,7 +23,7 @@
 
 :javascript
   var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
-      .setView([#{@request.requester.latitude}, #{@request.requester.longitude}], 18);
+      .setView([#{@request.requester.latitude}, #{@request.requester.longitude}], 16);
 
   L.mapbox.markerLayer({
     // this feature is in the GeoJSON format: see geojson.org
@@ -33,14 +33,11 @@
         type: 'Point',
         // coordinates here are in longitude, latitude order because
         // x, y is the standard for GeoJSON and many formats
-        coordinates: [-77, 37.9]
+        coordinates: [#{@request.requester.longitude}, #{@request.requester.latitude}]
     },
     properties: {
-        title: 'Shovel me!',
-        // description: 'Just one of me',
-        // one can customize markers by adding simplestyle properties
-        // http://mapbox.com/developers/simplestyle/
-        'marker-size': 'large',
-        'marker-color': '#f0a'
+      title: 'Shovel me!',
+      'marker-size': 'medium',
+      'marker-color': '#F35A57'
     }
   }).addTo(map);

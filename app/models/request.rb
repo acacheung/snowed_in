@@ -90,4 +90,9 @@ class Request < ActiveRecord::Base
     request.state = 'cancelled'
   end
 
+  def self.near(shoveler)
+    nearby_users = User.near([shoveler.latitude, shoveler.longitude], 5)
+    Request.where("requester_id IN (?) AND state = 'open'", nearby_users)
+  end
+
 end

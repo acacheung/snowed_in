@@ -2,19 +2,18 @@
 .volunteer_requests
   - @requests.each do |request|
     - if request.volunteer? && request.open?
-      - if current_user.nearbys(5).include? request.requester
-        = link_to request_path(request), :class => 'request' do
-          = request.format_request(request)
-          .index_request_distance
-            %span.fontello c
-            = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"
+      = link_to request_path(request), :class => 'request' do
+        = request.format_request(request)
+        .index_request_distance
+          %span.fontello c
+          = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"
+
 %h2 FOR MONEYS
 .for_money_requests
   - @requests.each do |request|
     - if request.volunteer? == false && request.open?
-      - if current_user.nearbys(5).include? request.requester
-        = link_to request_path(request), :class => 'request' do
-          = request.format_request(request)
-          .index_request_distance
-            %span.fontello c
-            = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"
+      = link_to request_path(request), :class => 'request' do
+        = request.format_request(request)
+        .index_request_distance
+          %span.fontello c
+          = "#{pluralize(current_user.distance_to(request.requester.address).round(2), 'mile')} away"
