@@ -5,7 +5,7 @@
     = render 'form'
 
   - if current_user.past_requests.any?
-    = link_to 'My past requests', '#', :class => 'toggle'
+    = link_to 'My past requests', '#', :class => 'toggle my_past_requests', remote: true
     .past_requests
       - current_user.past_requests.each do |past_request|
         = link_to request_path(past_request), :class => 'request' do

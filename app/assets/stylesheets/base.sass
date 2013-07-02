@@ -1,11 +1,5 @@
 @import compass/reset
-@import compass/css3
-
-$teal: #50C9C6
-$black: #000000
-$gray: #C0C0C0
-$white: #FFFFFF
-$pink: #F35A57
+@import include
 
 +font-face('fontello', font-files('/assets/fontello.svg'))
 
@@ -47,19 +41,15 @@ a
   max-width: 800px
 
 .notice_wrap
-  height: 40px
+  height: 50px
 
 #notice
-  position: relative
-  top: 10px
   padding:
     top: 3px
     bottom: 3px
-  border: 1px solid $teal
   +border-radius(5px)
-  background-color: rgba($teal, .2)
+  background-color: rgba($yellow, .35)
   text-align: center
-  color: $teal
 
 .fontello
   font-family: 'fontello'

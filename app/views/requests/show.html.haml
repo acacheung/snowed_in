@@ -8,11 +8,8 @@
 .map_wrap
   #map
 
-%h3 Chat
-- if current_user.shoveler?
-  %p.hint When are you available to start? Do you have all the tools you need?
-
 .chat
+  %h3 Chat
   - if user_signed_in?
     %p
       - @request.comments.each do |comment|

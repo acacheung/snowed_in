@@ -11,10 +11,9 @@
     .header
       .wrap
         = render 'shared/header'
-    .wrap
-      .notice_wrap
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => name
+    .notice_wrap
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => name
     .main
       .wrap
         = yield
