@@ -7,19 +7,23 @@
     %script{:src => "http://api.tiles.mapbox.com/mapbox.js/v1.1.0/mapbox.js"}
     = csrf_meta_tags
 
-  %body
-    .header
-      .wrap
-        = render 'shared/header'
-    .notice_wrap
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => name
-    .main
-      .wrap
-        = yield
-    .footer
-      .wrap
-        = render 'shared/footer'
+  - if current_page?(root_path)
+    %body.welcome
+  - else
+    %body
+
+  .header
+    .wrap
+      = render 'shared/header'
+  .notice_wrap
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => name
+  .main
+    .wrap
+      = yield
+  .footer
+    .wrap
+      = render 'shared/footer'
 
     = javascript_include_tag "application"
 
