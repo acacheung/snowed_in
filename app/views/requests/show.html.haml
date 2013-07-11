@@ -1,4 +1,4 @@
-%h2
+%h2.request_show_title
   = @request.format_request(@request)
   - if current_user.shoveler?
     .show_request_distance
@@ -8,19 +8,22 @@
 .map_wrap
   #map
 
-.chat
+- if current_user.shoveler?
+  = button_to "I'm interested!", '#', :id => 'button_reveal'
+
+#chat.chat
   %h3 Chat
-  - if user_signed_in?
-    %p
-      - @request.comments.each do |comment|
-        = "#{comment.user.name}: #{comment.body}"
-        %br
+  %p
+    - @request.comments.each do |comment|
+      = "#{comment.user.name}: #{comment.body}"
+      %br
   = render 'comments/form'
 
-
 :javascript
+
   var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
-      .setView([#{@request.requester.latitude}, #{@request.requester.longitude}], 16);
+    .setView([#{@request.requester.latitude}, #{@request.requester.longitude}], 16);
+    map.scrollWheelZoom.disable();
 
   L.mapbox.markerLayer({
     // this feature is in the GeoJSON format: see geojson.org
@@ -38,3 +41,13 @@
       'marker-color': '#F35A57'
     }
   }).addTo(map);
+
+  // var chat = document.getElementById('chat');
+  // var button_reveal = document.getElementById('button_reveal');
+  // if (#{current_user.shoveler?}){
+  //   chat.style.visibility = 'hidden';
+  //   button_reveal.onclick=function(){
+  //     chat.style.visibility = 'visible';
+  //     return false;
+  //   };
+  // };
